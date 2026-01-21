@@ -805,7 +805,7 @@ a {
 }
 
 .home-hero--promocoes {
-  height: 360px;
+  height: 560px;
   align-items: center;
 }
 
@@ -815,7 +815,7 @@ a {
   text-align: left;
   margin-left: -261px;
   padding: 72px 0;
-  max-width: 958px;
+  max-width: 1258px;
   gap: 20px;
 }
 
@@ -2064,11 +2064,13 @@ a {
     background: linear-gradient(180deg, var(--gb-orange) 0%, var(--gb-orange) 58%, #ffffff 58%, #ffffff 100%);
     overflow: hidden;
   }
+
   .home-contact .page-width {
     padding: 0 18px;
     max-width: 520px;
     width: 100%;
   }
+
   .home-contact__grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -2076,36 +2078,43 @@ a {
     margin: 0 auto;
     width: 100%;
   }
+
   .home-contact h2 {
     font-size: 28px;
     line-height: 125%;
     letter-spacing: 0;
   }
+
   .home-contact p {
     font-size: 16px;
     line-height: 155%;
     letter-spacing: 0;
     margin-bottom: 8px;
   }
+
   .home-contact form {
     padding: 28px 22px;
     border-radius: 24px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     margin-top: 4px;
   }
+
   .home-contact label {
     font-size: 16px;
     margin-bottom: 8px;
   }
+
   .home-contact input,
   .home-contact textarea {
     font-size: 16px;
     margin-bottom: 22px;
   }
+
   .home-contact textarea {
     min-height: 140px;
     border-radius: 12px;
   }
+
   .home-contact .gb-btn {
     font-size: 17px;
     padding: 16px;
@@ -2192,6 +2201,7 @@ a {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .home-catalogs__card {
     width: 100%;
     max-width: 420px;
@@ -2200,11 +2210,13 @@ a {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     gap: 12px;
   }
+
   .home-catalogs__card img {
     width: 100%;
     height: auto;
     max-height: none;
   }
+
   .home-catalogs__card .gb-btn {
     width: 100%;
     margin: 0;
@@ -2467,6 +2479,7 @@ a {
   .article-hero {
     min-height: 320px;
   }
+
   .article-hero__title {
     font-size: 26px;
   }
@@ -2974,6 +2987,7 @@ a {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .promo-modal__dialog {
   position: relative;
   z-index: 2;
@@ -3614,6 +3628,7 @@ a {
     border-radius: 8px;
   }
 }
+
 .home-categories__card--wide .home-categories__label span {
   font-family: "Poppins", "Montserrat", "Inter", system-ui, -apple-system, sans-serif;
   font-size: 28px;
@@ -3757,6 +3772,7 @@ a {
     gap: 16px;
     min-height: 360px;
   }
+
   .home-hero--blog .home-hero__heading,
   .home-hero--blog .home-hero__text {
     position: static;
