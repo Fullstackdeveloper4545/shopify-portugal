@@ -46,6 +46,10 @@
     border-radius: 12px;
   }
 
+  .sazonais-breadcrumb {
+    margin: 24px 0 32px;
+  }
+
   @media (max-width: 749px) {
     .sazonais-hero {
       padding: 40px 0;
@@ -57,32 +61,17 @@
   }
 {%- endstyle -%}
 
-<section class="sazonais-hero">
-  <div class="page-width sazonais-hero__grid">
-    <div class="sazonais-hero__content">
-      {% if section.settings.kicker != blank %}
-        <p class="home-usps__text" style="margin:0 0 8px;color:#ffeedd;font-weight:600;letter-spacing:0.4px;">{{ section.settings.kicker }}</p>
-      {% endif %}
-      <h1 class="sazonais-hero__heading">{{ section.settings.heading | default: page.title | escape }}</h1>
-      {% if section.settings.text != blank %}
-        <p class="sazonais-hero__text">{{ section.settings.text }}</p>
-      {% endif %}
-      <div class="sazonais-hero__cta">
-        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a class="gb-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
-        {% endif %}
-        {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
-          <a class="gb-btn gb-btn--ghost" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label }}</a>
-        {% endif %}
-      </div>
-    </div>
-    {% if section.settings.image != blank %}
-      <div class="sazonais-hero__media">
-        {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading | default: page.title | escape }}
-      </div>
-    {% endif %}
-  </div>
-</section>
+
+
+{%- assign breadcrumbs_label = 'general.breadcrumbs' | t -%}
+{%- if breadcrumbs_label contains 'Translation missing' -%}
+  {%- assign breadcrumbs_label = 'Breadcrumb' -%}
+{%- endif -%}
+{%- assign breadcrumbs_home_label = 'general.home' | t -%}
+{%- if breadcrumbs_home_label contains 'Translation missing' -%}
+  {%- assign breadcrumbs_home_label = 'Loja' -%}
+{%- endif -%}
+
 
 {% schema %}
 {
@@ -92,36 +81,24 @@
       "type": "text",
       "id": "kicker",
       "label": "Chamada curta",
-      "default": "Novidades sazonais"
+      "default": "Outono na GlobalBrico"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Título",
-      "default": "Coleções sazonais"
+      "default": "Prepare a sua casa e jardim para a nova estação"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Descrição",
-      "default": "Descubra peças e ofertas pensadas para a estação. Atualizamos esta página com seleções temáticas, lançamentos e campanhas especiais."
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Texto do botão principal",
-      "default": "Ver destaques"
+      "default": "Com a chegada do Outono, os dias tornam-se mais frios e acolhedores – é o momento ideal para reforçar o conforto, cuidar da casa e preparar o jardim."
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "Link do botão principal"
-    },
-    {
-      "type": "text",
-      "id": "secondary_label",
-      "label": "Texto do botão secundário",
-      "default": "Explorar catálogo"
     },
     {
       "type": "url",

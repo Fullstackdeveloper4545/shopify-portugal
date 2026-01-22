@@ -15,6 +15,15 @@
 {%- endstyle -%}
 
 {%- assign show_home_usps = true -%}
+{%- assign sb_page_handle = page.handle | default: '' -%}
+{%- assign sb_template_suffix = template.suffix | default: '' -%}
+{%- assign is_sazonais_page = false -%}
+{%- if sb_page_handle == 'sazonais' or sb_page_handle == 'sazonias' -%}
+  {%- assign is_sazonais_page = true -%}
+{%- endif -%}
+{%- if sb_template_suffix == 'sazonais' or sb_template_suffix == 'sazonias' -%}
+  {%- assign is_sazonais_page = true -%}
+{%- endif -%}
 
 {% if page.handle == 'promocoes' or template.suffix == 'promocoes' %}
   {%- assign promo_collection = section.settings.promo_collection -%}
@@ -36,89 +45,116 @@
       <div style="text-align:center;margin:0 auto;width:100%;max-width:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:48px 48px;">
         <h1
           class="home-hero__heading"
-          style="font-family:Poppins;font-weight:600;font-size:36px;line-height:140%;letter-spacing:0;text-align:center;padding:12px 16px;margin:-91px 168px;"
+          style="font-family:Poppins;font-weight:600;font-size:36px;line-height:140%;letter-spacing:0;text-align:center;"
         >
           Grandes descontos em bricolage, <br /> construção e jardim!
         </h1>
         <p
           class="home-hero__text"
-          style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;padding:12px 2px;margin:20px 308px;"
+          style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;"
         >
-          Aqui encontra as melhores promoções em ferramentas,<br />
-          materiais de construção, tintas, iluminação, eletricidade e <br />
+          Aqui encontra as melhores promoções em ferramentas,
+          materiais de construção, tintas, iluminação, eletricidade e 
           jardinagem, com descontos exclusivos e tempo limitado.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="promo-grid section-space">
-    <div class="page-width">
-      <div class="promo-grid__inner">
-        {%- if promo_collection != blank and promo_collection.products_count > 0 -%}
-          {%- for product in promo_collection.products -%}
-            {%- assign bg_url = '' -%}
-            {%- if product.featured_media -%}
-              {%- assign bg_url = product.featured_media | image_url: width: 1400 -%}
-            {%- elsif product.images.first -%}
-              {%- assign bg_url = product.images.first | image_url: width: 1400 -%}
-            {%- endif -%}
-            {%- assign promo_code_raw = product.metafields.custom.promo_code | default: '' -%}
-            {%- assign promo_code_clean = promo_code_raw | strip -%}
-            {%- assign promo_code_display = promo_code_clean | escape -%}
-{%- capture promo_bg -%}
-  {%- if bg_url != '' -%}
-    background-image: url('{{ bg_url }}');
-    background-color: transparent;
-  {%- else -%}
-    background-image: none;
-    background-color: transparent;
+  {%- assign breadcrumbs_label = 'general.breadcrumbs' | t -%}
+  {%- if breadcrumbs_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_label = 'Breadcrumb' -%}
   {%- endif -%}
-{%- endcapture -%}
-            <a
-              class="promo-card{% if bg_url == '' %} promo-card--no-image{% endif %}"
-              href="{{ product.url }}"
-              data-promo-code="{{ promo_code_display }}"
-              style="{{ promo_bg | strip }}"
-            >
-              <div class="promo-card__content">
-                <h3>{{ product.title | escape }}</h3>
-                {%- if promo_code_clean != blank and promo_code_clean != product.title -%}
-                  <p>{{ promo_code_display }}</p>
-                {%- endif -%}
-                <span class="promo-card__cta" data-promo-trigger>Aproveite já</span>
-              </div>
-            </a>
-          {%- endfor -%}
-        {%- else -%}
-          {%- assign fallback_cards = 'Poupe até 40% — não perca os descontos|Outlet & Promoções|6e23fa198c71c602942f754653e465c414cd7d3d.jpg|PROMO40,20% em corta relvas marca VITO|Aproveite já|18adb5906584fb8739abaaa3296fe782775d26b1.png|VITO20,10% na marca Dewalt|Aproveite já|3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg|DEWALT10' | split: ',' -%}
-          {%- for entry in fallback_cards -%}
-            {%- assign parts = entry | split: '|' -%}
-            {%- assign heading = parts[0] -%}
-            {%- assign subheading = parts[1] -%}
-            {%- assign fallback_image = parts[2] -%}
-            {%- assign promo_code = parts[3] -%}
-            <a
-              class="promo-card"
-              href="#"
-              data-promo-code="{{ promo_code }}"
-              style="background-image: url('{{ fallback_image | asset_url }}'); background-color: transparent;"
-            >
-              <div class="promo-card__content">
-                <h3>{{ heading }}</h3>
-                {%- if subheading != blank and subheading != 'Aproveite já' -%}
-                  <p>{{ subheading }}</p>
-                {%- endif -%}
-                <span class="promo-card__cta" data-promo-trigger>Aproveite já</span>
-              </div>
-            </a>
-          {%- endfor -%}
-        {%- endif -%}
+  {%- assign breadcrumbs_home_label = 'general.home' | t -%}
+  {%- if breadcrumbs_home_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_home_label = 'Loja' -%}
+  {%- endif -%}
+
+  <section class="page-breadcrumbs section-space" aria-label="{{ breadcrumbs_label }}">
+    <div class="page-width">
+      <nav class="product-breadcrumbs" aria-label="{{ breadcrumbs_label }}">
+        <a href="/" class="product-breadcrumbs__home">{{ breadcrumbs_home_label }}</a>
+        <span class="product-breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="product-breadcrumbs__current" aria-current="page">{{ page.title | default: 'Promoções' | escape }}</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="home-promos section-space">
+    <div class="page-width">
+      <div class="home-promos__grid">
+        <article class="home-promos__card">
+          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & Promoções" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>Poupe até 40% — não perca os descontos</h3>
+              <p>Outlet & Promoções</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>20% em corta relvas</h3>
+              <p>Marca VITO</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>10% na marca Dewalt</h3>
+              <p>Ferramentas profissionais</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  {% unless template.name == 'page.catalogos' %}
+  <section class="home-promos section-space">
+    <div class="page-width">
+      <div class="home-promos__grid">
+        <article class="home-promos__card">
+          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & Promoções" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>Poupe até 40% — não perca os descontos</h3>
+              <p>Outlet & Promoções</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>20% em corta relvas</h3>
+              <p>Marca VITO</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>10% na marca Dewalt</h3>
+              <p>Ferramentas profissionais</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {% unless template.name == 'page.catalogos' or page.handle == 'promocoes' or template.suffix == 'promocoes' %}
     <section class="home-usps">
       <div class="page-width">
         <div class="home-categories__header">
@@ -199,6 +235,8 @@
     </div>
   </div>
 
+  {% render 'home-usps-block' %}
+
   <section class="section-space">
 
     <div class="page-width">
@@ -207,15 +245,15 @@
 
         <div class="home-newsletter__inner">
 
-          <h2>Receba dicas e promo��es exclusivas</h2>
+          <h2>Receba dicas e promo��es exclusivas</h2>
 
-          <p>Subscreva a nossa newsletter e receba novidades, promo��es <br> e inspira��es para os seus projetos de bricolagem.</p>
+          <p>Subscreva a nossa newsletter e receba novidades, promo��es <br> e inspira��es para os seus projetos de bricolagem.</p>
 
           <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
 
             <input type="hidden" name="form_type" value="customer">
 
-            <input type="hidden" name="utf8" value="�o">
+            <input type="hidden" name="utf8" value="�o">
 
             <input type="hidden" name="contact[tags]" value="newsletter">
 
@@ -480,67 +518,15 @@
     <div class="page-width">
       <div style="text-align:center;">
         <h1 style="font-family:Poppins;font-weight:600;font-size:36px;line-height:140%;letter-spacing:0;text-align:center;">
-          Tudo o que precisa para bricolage, <br /> construção e jardim - num só lugar
+      Tudo o que precisa para bricolage, <br/>construção e jardim - num só lugar
         </h1>
         <p style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;">
-          Na GlobalBrico, encontra uma loja online completa com milhares<br />
-          de produtos de bricolage, construção, ferramentas, tintas, <br />
-          eletricidade, canalização e jardinagem.
+          Na GlobalBrico, encontra uma loja online completa com milhares <br/>de produtos de bricolage, construção, ferramentas, tintas,<br/> eletricidade, canalização e jardinagem.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="home-promos section-space">
-    <div class="page-width">
-      <div class="home-promos__grid">
-        <div class="home-promos__card">
-          <img
-            src="/cdn/shop/t/3/assets/6e23fa198c71c602942f754653e465c414cd7d3d.jpg?v=98630217751550892001765511999"
-            alt="Poupe até 40% — não perca os descontos"
-            loading="lazy"
-            style="width:100%;height:100%;object-fit:cover;"
-          >
-          <div class="home-promos__content">
-            <div>
-              <h3>Poupe até 40% — não perca os descontos</h3>
-              <p>Outlet &amp; Promoções</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="home-promos__card">
-          <img
-            src="/cdn/shop/t/3/assets/18adb5906584fb8739abaaa3296fe782775d26b1.png?v=26925941635921693521765512000"
-            alt="20% em corta relvas marca VITO"
-            loading="lazy"
-            style="width:100%;height:100%;object-fit:cover;"
-          >
-          <div class="home-promos__content">
-            <div>
-              <h3>20% em corta relvas marca VITO</h3>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="">Aproveite já</a>
-          </div>
-        </div>
-
-        <div class="home-promos__card">
-          <img
-            src="/cdn/shop/t/3/assets/3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg?v=129800518227527895141765511999"
-            alt="10% na marca Dewalt"
-            loading="lazy"
-            style="width:100%;height:100%;object-fit:cover;"
-          >
-          <div class="home-promos__content">
-            <div>
-              <h3>10% na marca Dewalt</h3>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="">Aproveite já</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
   <section class="prod-layout">
@@ -735,7 +721,7 @@
     </div>
   </section>
 
-{% elsif page.handle == 'sazonais' or template.suffix == 'sazonais' %}
+{% elsif is_sazonais_page %}
   <section class="home-hero home-hero--sazonais">
     <div class="home-hero__media">
       <img src="{{ 'caefde329a7789ecd7c7266b234a42104f3c381f.jpg' | asset_url }}" alt="Novidades sazonais" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
@@ -752,6 +738,24 @@
       </div>
     </div>
   </section>
+
+  {%- assign breadcrumbs_label = 'general.breadcrumbs' | t -%}
+  {%- if breadcrumbs_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_label = 'Breadcrumb' -%}
+  {%- endif -%}
+  {%- assign breadcrumbs_home_label = 'general.home' | t -%}
+  {%- if breadcrumbs_home_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_home_label = 'Loja' -%}
+  {%- endif -%}
+  <div class="page-width">
+    <nav class="product-breadcrumbs" aria-label="{{ breadcrumbs_label }}">
+      <a href="/" class="product-breadcrumbs__home">{{ breadcrumbs_home_label }}</a>
+      <span class="product-breadcrumbs__separator" aria-hidden="true">/</span>
+      <span class="product-breadcrumbs__current" aria-current="page">
+        {{ page.title | default: 'Sazonias' }}
+      </span>
+    </nav>
+  </div>
 
   {% assign saz_collection = collections['sazonais'] %}
   {% if saz_collection == blank or saz_collection.products_count == 0 %}
@@ -1179,7 +1183,9 @@
       flex-wrap: wrap;
       gap: 48px;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 1200px;
     }
     .servicos-card-banner__inner > * {
       flex: 1 1 45%;
@@ -1507,13 +1513,25 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
             Com o Cartão de Cliente GlobalBrico, tem acesso a descontos exclusivos, promoções especiais,<br>
             campanhas personalizadas e benefícios únicos nas suas compras online e em loja.
           </p>
+      </div>
+    </div>
+  </section>
+  <section class="servicos-card-banner">
+    <div class="page-width">
+      <div class="servicos-card-banner__inner">
+        <div class="servicos-card-banner__media">
+          <img src="{{ '97718ac0d18b967f20d355280ddea6f2648bc4fe.png' | asset_url }}" alt="Cartão de Cliente GlobalBrico" loading="lazy">
+        </div>
+        <div>
+          <h2 class="servicos-card-banner__title">Cartão de Cliente<br />GlobalBrico</h2>
+          <div class="servicos-card-banner__body">
+            <p>Com o <strong>Cartão de Cliente GlobalBrico</strong>, ganha<br />acesso a descontos exclusivos, campanhas<br/>especiais, ofertas personalizadas e benefícios em<br />cada compra.</p>
+            <p>É gratuito, fácil de aderir e válido tanto online como<br />em loja!</p>
+          </div>
         </div>
       </div>
-    </section>
-  
-  
-    {% render 'servicos-card-banner' %}
-
+    </div>
+  </section>
     {% render 'home-usps-block' %}
 
     <section class="home-contact section-space" style="margin: 72px 0 0;">
