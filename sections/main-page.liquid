@@ -245,9 +245,9 @@
 
         <div class="home-newsletter__inner">
 
-          <h2>Receba dicas e promo��es exclusivas</h2>
+          <h2>Receba dicas e promoções exclusivas</h2>
 
-          <p>Subscreva a nossa newsletter e receba novidades, promo��es <br> e inspira��es para os seus projetos de bricolagem.</p>
+          <p>Subscreva a nossa newsletter e receba novidades, promoções <br> e inspirações para os seus projetos de bricolagem.</p>
 
           <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
 
@@ -328,6 +328,7 @@
       </div>
     </div>
   </section>
+
 
   {% render 'home-usps-block' %}
 
@@ -426,9 +427,6 @@
     </div>
     </section>
 
-    {% render 'servicos-card-banner' %}
-    {% render 'home-usps-block' %}
-
     <div class="page-width page-width--narrow section-{{ section.id }}-padding">
       <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ page.content }}
@@ -501,6 +499,24 @@
     </div>
   </section>
 
+  <section class="section-space">
+    <div class="page-width">
+      <div class="home-newsletter">
+        <div class="home-newsletter__inner">
+          <h2>Receba dicas e promoções exclusivas</h2>
+          <p>Subscreva a nossa newsletter e receba novidades, promoÃ§Ãµes <br> e inspiraÃ§Ãµes para os seus projetos de bricolagem.</p>
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="âœ“">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" placeholder="Email" required>
+            <button class="gb-btn" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
 {% elsif page.handle == 'produtos' or template.suffix == 'produtos' or page.handle == 'products' or template.suffix == 'products' %}
   {% assign prod_collection = collections['all'] %}
   {% if prod_collection == blank or prod_collection.products_count == 0 %}
@@ -523,6 +539,64 @@
         <p style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;">
           Na GlobalBrico, encontra uma loja online completa com milhares <br/>de produtos de bricolage, construção, ferramentas, tintas,<br/> eletricidade, canalização e jardinagem.
         </p>
+      </div>
+    </div>
+  </section>
+
+  {%- assign breadcrumbs_label = 'general.breadcrumbs' | t -%}
+  {%- if breadcrumbs_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_label = 'Breadcrumb' -%}
+  {%- endif -%}
+  {%- assign breadcrumbs_home_label = 'general.home' | t -%}
+  {%- if breadcrumbs_home_label contains 'Translation missing' -%}
+    {%- assign breadcrumbs_home_label = 'Loja' -%}
+  {%- endif -%}
+
+  <section class="page-breadcrumbs">
+    <div class="page-width">
+      <nav class="product-breadcrumbs" aria-label="{{ breadcrumbs_label }}">
+        <a href="/" class="product-breadcrumbs__home">{{ breadcrumbs_home_label }}</a>
+        <span class="product-breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="product-breadcrumbs__current" aria-current="page">
+          {{ page.title | default: 'Produtos' | escape }}
+        </span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="home-promos section-space">
+    <div class="page-width">
+      <div class="home-promos__grid">
+        <article class="home-promos__card">
+          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & PromoÃ§Ãµes" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>Poupe atÃ© 40% â€” nÃ£o perca os descontos</h3>
+              <p>Outlet & PromoÃ§Ãµes</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>20% em corta relvas</h3>
+              <p>Marca VITO</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
+          </div>
+        </article>
+        <article class="home-promos__card">
+          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div class="home-promos__content">
+            <div>
+              <h3>10% na marca Dewalt</h3>
+              <p>Ferramentas profissionais</p>
+            </div>
+            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -695,6 +769,24 @@
     </div>
   </div>
 </section>
+
+  <section class="section-space">
+    <div class="page-width">
+      <div class="home-newsletter">
+        <div class="home-newsletter__inner">
+          <h2>Receba dicas e promoções exclusivas</h2>
+          <p>Subscreva a nossa newsletter e receba novidades, promoções <br> e inspirações para os seus projetos de bricolagem.</p>
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" placeholder="Email" required>
+            <button class="gb-btn" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <section class="promo-contact-mobile">
     <div class="promo-contact-mobile__inner">
@@ -1176,8 +1268,10 @@
       object-fit: cover;
     }
     .servicos-card-banner {
-      padding: 24px 0 72px;
-    }
+    padding:20px 0px;
+    display:flex;
+    justify-content:center;
+  }
     .servicos-card-banner__inner {
       display: flex;
       flex-wrap: wrap;
@@ -1497,174 +1591,131 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
   </div>
 
   {% elsif page.handle == 'cartao' or page.handle == 'cartão' or template.suffix == 'cartao' or template.suffix == 'cartão' %}
-    <section class="home-hero home-hero--cartao">
-      <div
-        class="home-hero__media"
-        style="background-image: url('{{ 'cb84b0f40c6ba0b291fb64d7333e527a1079f5aa.jpg' | asset_url }}'); background-size: cover; background-position: center;"
-        role="img"
-        aria-label="Cartão de Cliente GlobalBrico"
-      ></div>
-      <div class="home-hero__overlay"></div>
-      <div class="page-width">
-        <div class="home-hero__inner">
-          <h1 class="home-hero__heading">Cartão de Cliente GlobalBrico</h1>
-          <p class="home-hero__text">
-            Ser cliente GlobalBrico é muito mais do que comprar – é ganhar em cada compra.<br>
-            Com o Cartão de Cliente GlobalBrico, tem acesso a descontos exclusivos, promoções especiais,<br>
-            campanhas personalizadas e benefícios únicos nas suas compras online e em loja.
-          </p>
+  <section class="home-hero home-hero--sazonais">
+    <div class="home-hero__media">
+      <img src="{{ 'cb84b0f40c6ba0b291fb64d7333e527a1079f5aa.jpg' | asset_url }}" alt="{{ page.title | default: 'Catálogos' | escape }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="home-hero__overlay"></div>
+    <div class="page-width">
+      <div style="text-align:center;">
+        <h1
+          class="home-hero__heading"
+          style="font-family:Poppins;font-weight:600;font-size:36px;line-height:140%;letter-spacing:0;text-align:center;"
+        >
+          Cartão de Cliente Globalbrico
+        </h1>
+        <p
+          class="home-hero__text"
+          style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;"
+        >
+          Ser cliente GlobalBrico é muito mais do que comprar - é ganhar em cada compra. <br/> Com o Cartão de Cliente GlobalBrico, tem acesso a descontos exclusivos,<br/> promoções especiais, campanhas personalizadas e benefícios únicos nas suas compras online e em loja.
+        </p>
       </div>
     </div>
   </section>
-  <section class="servicos-card-banner">
+  {% render 'servicos-card-banner' %}
+  {% render 'home-usps-block' %}
+
+  <section class="home-contact">
     <div class="page-width">
-      <div class="servicos-card-banner__inner">
-        <div class="servicos-card-banner__media">
-          <img src="{{ '97718ac0d18b967f20d355280ddea6f2648bc4fe.png' | asset_url }}" alt="Cartão de Cliente GlobalBrico" loading="lazy">
+      <div class="home-contact__grid">
+        <div>
+          <h2>Tem dúvidas sobre os nossos produtos, encomendas ou assistência técnica?</h2>
+          <p>Estamos aqui para ajudar. Preencha o formulário e responderemos com a maior brevidade possível.</p>
         </div>
         <div>
-          <h2 class="servicos-card-banner__title">Cartão de Cliente<br />GlobalBrico</h2>
-          <div class="servicos-card-banner__body">
-            <p>Com o <strong>Cartão de Cliente GlobalBrico</strong>, ganha<br />acesso a descontos exclusivos, campanhas<br/>especiais, ofertas personalizadas e benefícios em<br />cada compra.</p>
-            <p>É gratuito, fácil de aderir e válido tanto online como<br />em loja!</p>
-          </div>
+          <form
+            method="post"
+            action="/pages/Obrigado"
+            id="contact_form"
+            accept-charset="UTF-8"
+            class="home-contact__form"
+            data-contact-submit-action="/contact"
+            data-redirect-url="/pages/Obrigado"
+          >
+            <input type="hidden" name="form_type" value="contact">
+            <input type="hidden" name="utf8" value="✓">
+            <div>
+              <label for="ContactFormName">Nome</label>
+              <input type="text" name="contact[name]" id="ContactFormName" value="" required>
+            </div>
+            <div>
+              <label for="ContactFormPhone">Telefone</label>
+              <input type="tel" name="contact[phone]" id="ContactFormPhone" value="">
+            </div>
+            <div>
+              <label for="ContactFormEmail">Email</label>
+              <input type="email" name="contact[email]" id="ContactFormEmail" value="" required>
+            </div>
+            <div>
+              <label for="ContactFormMessage">Mensagem</label>
+              <textarea name="contact[body]" id="ContactFormMessage"></textarea>
+            </div>
+            <button type="submit" class="gb-btn">Enviar</button>
+          </form>
         </div>
       </div>
     </div>
   </section>
-    {% render 'home-usps-block' %}
 
-    <section class="home-contact section-space" style="margin: 72px 0 0;">
-      <div class="page-width">
-        <div class="home-contact__grid">
-          <div>
-            <h2>Tem dúvidas sobre os nossos produtos, encomendas ou assistência técnica?</h2>
-            <p>Estamos aqui para ajudar. Preencha o formulário e responderemos com a maior brevidade possível.</p>
-          </div>
-          <div>
-            <form
-              method="post"
-              action="/pages/Obrigado"
-              id="contact_form"
-              accept-charset="UTF-8"
-              class="home-contact__form"
-              data-contact-submit-action="/contact"
-              data-redirect-url="/pages/Obrigado"
-            >
-              <input type="hidden" name="form_type" value="contact">
-              <input type="hidden" name="utf8" value="ƒo"">
-              <div>
-                <label for="CartaoContactFormName">Nome</label>
-                <input type="text" name="contact[name]" id="CartaoContactFormName" value="" required>
-              </div>
-              <div>
-                <label for="CartaoContactFormPhone">Telefone</label>
-                <input type="tel" name="contact[phone]" id="CartaoContactFormPhone" value="">
-              </div>
-              <div>
-                <label for="CartaoContactFormEmail">Email</label>
-                <input type="email" name="contact[email]" id="CartaoContactFormEmail" value="" required>
-              </div>
-              <div>
-                <label for="CartaoContactFormMessage">Mensagem</label>
-                <textarea name="contact[body]" id="CartaoContactFormMessage"></textarea>
-              </div>
-              <button type="submit" class="gb-btn">Enviar</button>
-            </form>
-          </div>
+  {% render 'catalog-brands-block' %}
+
+  <section class="home-faq">
+    <div class="page-width">
+      <div class="home-categories__header">
+        <h2 class="home-categories__title">Perguntas Frequentes</h2>
+      </div>
+      <div class="home-faq__list">
+        <div class="home-faq__item">
+          <button class="home-faq__question" type="button" data-faq-trigger>
+            <span>Quanto tempo demora a entrega da minha encomenda?</span>
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="home-faq__answer" hidden>As entregas são feitas em 48h em Portugal Continental.</div>
+        </div>
+        <div class="home-faq__item">
+          <button class="home-faq__question" type="button" data-faq-trigger>
+            <span>Quanto tempo demora a entrega da minha encomenda?</span>
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="home-faq__answer" hidden>As entregas são feitas em 48h em Portugal Continental.</div>
+        </div>
+        <div class="home-faq__item">
+          <button class="home-faq__question" type="button" data-faq-trigger>
+            <span>Quanto tempo demora a entrega da minha encomenda?</span>
+            <span aria-hidden="true">+</span>
+          </button>
+          <div class="home-faq__answer" hidden>As entregas são feitas em 48h em Portugal Continental.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {% render 'catalog-brands-block' %}
+  {% render 'catalog-blog-highlights' %}
 
-    <section class="home-faq">
-      <div class="page-width">
-        <div class="home-categories__header">
-          <h2 class="home-categories__title">Perguntas Frequentes</h2>
-        </div>
-        <div class="home-faq__list">
-          <div class="home-faq__item">
-            <button class="home-faq__question" type="button" data-faq-trigger>
-              <span>Quanto tempo demora a entrega da minha encomenda?</span>
-              <span aria-hidden="true">+</span>
-            </button>
-            <div class="home-faq__answer" hidden>As entregas são feitas em 48h em Portugal Continental.</div>
-          </div>
-          <div class="home-faq__item">
-            <button class="home-faq__question" type="button" data-faq-trigger>
-              <span>Como posso acompanhar o estado da minha encomenda?</span>
-              <span aria-hidden="true">+</span>
-            </button>
-            <div class="home-faq__answer" hidden>Receberá atualizações por email e pode consultar o estado na sua conta.</div>
-          </div>
-          <div class="home-faq__item">
-            <button class="home-faq__question" type="button" data-faq-trigger>
-              <span>Fazem entregas nas Ilhas?</span>
-              <span aria-hidden="true">+</span>
-            </button>
-            <div class="home-faq__answer" hidden>Sim, entregamos nas Ilhas com prazos estendidos e custos adicionais.</div>
-          </div>
+  <section class="section-space">
+    <div class="page-width">
+      <div class="home-newsletter">
+        <div class="home-newsletter__inner">
+          <h2>Receba dicas e promoções exclusivas</h2>
+          <p>Subscreva a nossa newsletter e receba novidades, promoções <br> e inspirações para os seus projetos de bricolagem.</p>
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" placeholder="Email" required>
+            <button class="gb-btn" type="submit">Enviar</button>
+          </form>
         </div>
       </div>
+    </div>
     </section>
 
-    <section class="home-blog">
-      <div class="page-width">
-        <div class="home-products__header">
-          <div>
-            <h2 class="home-products__title">Dicas de Bricolagem, Casa e Jardim</h2>
-            <p class="home-products__text">Inspire-se com conteúdos práticos e dicas úteis para os seus projetos <br> de bricolagem, decoração, jardinagem e manutenção da casa.</p>
-          </div>
-          <div class="home-blog__cta">
-            <a class="gb-btn" href="">Saber mais</a>
-          </div>
-        </div>
-        <div class="home-blog__grid">
-          <article class="home-blog__card">
-            <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="Artigo exemplo 1" loading="lazy">
-            <div class="home-blog__body">
-              <h3>A melhor Lixadora Elétrica para <br> projetos de Madeira</h3>
-              <small>Data</small>
-            </div>
-          </article>
-          <article class="home-blog__card">
-            <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="Artigo exemplo 2" loading="lazy">
-            <div class="home-blog__body">
-              <h3>Como preparar o jardim para <br> a primavera</h3>
-              <small>Data</small>
-            </div>
-          </article>
-          <article class="home-blog__card">
-            <img src="{{ '95acb7f2bc21275b0605244864f58bb72900692c.jpg' | asset_url }}" alt="Artigo exemplo 3" loading="lazy">
-            <div class="home-blog__body">
-              <h3>DIY: prateleiras criativas para <br> arrumação</h3>
-              <small>Data</small>
-            </div>
-          </article>
-        </div>
+    <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+      <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ page.content }}
       </div>
-    </section>
-
-    <section class="section-space">
-      <div class="page-width">
-        <div class="home-newsletter">
-          <div class="home-newsletter__inner">
-            <h2>Receba dicas e promoções exclusivas</h2>
-            <p>Subscreva a nossa newsletter e receba novidades, promoções <br> e inspirações para os seus projetos de bricolagem.</p>
-            <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="home-newsletter__form">
-              <input type="hidden" name="form_type" value="customer">
-              <input type="hidden" name="utf8" value="ƒo"">
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <input type="email" name="contact[email]" placeholder="Email" required>
-              <button class="gb-btn" type="submit">Enviar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  {% elsif page.handle == 'blog' %}
+  </div>{% elsif page.handle == 'blog' %}
   {%- liquid
     assign blog_handle = section.settings.blog_handle
     if blog_handle == blank
@@ -2456,3 +2507,5 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
   ]
 }
 {% endschema %}
+
+
