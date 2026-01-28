@@ -53,8 +53,9 @@
   grid-template-columns: 1fr 2fr;
   gap: 148px;
   align-items: start;
+  
   max-width: 1200px;
-  margin: 66px auto;
+  margin: 16px auto;
   padding: 0 16px;
 }
 .about-us__grid--mission {
@@ -122,13 +123,14 @@
 .about-us__card {
   background: #000;
   border-radius: 0;
-  padding: 40px 16px;
+  padding: 40px 48px;
   line-height: 1.6;
   font-size: 16px;
   color: #fff;
   max-width: none;
   min-height: 561px;
   margin: 0;
+
 }
 .about-us__usps {
   display: grid;
@@ -180,28 +182,39 @@
   letter-spacing: 0;
   display: grid;
   gap: 14px;
+
 }
 .about-us__usp-copy strong { font-weight: 600; }
+
+
+
 @media (max-width: 749px) {
   .about-us {
     padding: 0 0 48px;
     gap: 32px;
+    max-width:440px;
+    overflow:hidden;
   }
   .about-us__hero {
     min-height: 360px;
+    
   }
   .about-us__hero h1 { font-size: 28px; }
   .about-us__hero p { font-size: 16px; }
-  .about-us__title { font-size: 22px; }
+  .about-us__title { font-size: 34px; }
   .about-us__grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  
+      margin: 16px 0;
+
   }
   .about-us__card {
     padding: 28px 18px;
     min-height: auto;
     text-align: left;
     margin: 0 0 12px;
+
   }
   .about-us__card h3,
   .about-us__card div {
@@ -212,14 +225,85 @@
   .about-us__usps {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 0 12px;
+    padding: 0 16px;
+     margin: 32px 0;
   }
   .about-us__usps-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 18px;
+
+
   }
+  .about-us__usp-copy {
+    max-width:380px;
+  }
+
+
   .about-us__usp-card {
     padding: 24px 14px;
+  }
+  .home-contact,
+  .home-faq,
+  .home-blog,
+  .home-newsletter,
+  .section-space {
+    margin: 0 !important;
+    padding: 0;
+    max-width:360px;
+    
+  }
+  .home-contact {
+    padding: 32px 0 24px;
+    max-width:440px;
+
+  }
+  .home-contact__grid {
+    gap: 20px;
+    max-width: 100%;
+    padding: 0 12px;
+  }
+  .home-faq {
+    padding: 36px 0 24px;
+    max-width:440px;
+  }
+  .home-faq__list {
+    padding: 0 12px;
+  }
+  .home-faq__item {
+    padding: 16px 0;
+  }
+  .home-blog {
+    padding: 38px 0 24px;
+    max-width:440px;
+
+  }
+  .home-blog .home-products__header {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 0 12px;
+  }
+  .home-blog__grid {
+    padding: 0 12px;
+  }
+  .home-newsletter {
+    padding: 44px 18px;
+    max-width:440px;
+
+  }
+  .home-newsletter__inner {
+    padding: 0;
+  }
+  .home-newsletter form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .home-newsletter input,
+  .home-newsletter .gb-btn {
+    width: 100%;
+    min-width: 0;
+  }
+  .home-blog__cta{
+    display:none;
   }
 }
 {%- endstyle -%}
@@ -307,7 +391,7 @@
     })();
   </script>
 
-  <div class="about-us__card" style="text-align:left; display:flex; flex-direction:column; justify-content:center; padding:40px 24px 40px 64px;">
+  <div class="about-us__card" style="text-align:left; display:flex; flex-direction:column; justify-content:center; ">
     <h3 style="margin-top:0;margin-bottom:12px;font-family:'Poppins',sans-serif;font-weight:500;font-size:42px;line-height:48px;letter-spacing:0;color:#fff;text-align:left;margin-left:0;">
       {{ section.settings.founders_heading | newline_to_br }}
     </h3>

@@ -14,7 +14,7 @@
       "settings": {
         "kicker": "",
         "heading": "Tudo para Bricolagem, Ferramentas e Casa - Entregas em 48h",
-        "subheading": "Mais de 20 000 produtos disponíveis. Pagamentos seguros, assistência técnica e atendimento personalizado.",
+        "subheading": "Mais de 20 000 produtos dispon\u00c3\u00adveis. Pagamentos seguros, assist\u00c3\u00aancia t\u00c3\u00a9cnica e atendimento personalizado.",
         "primary_label": "Comprar",
         "primary_link": "",
         "secondary_label": "",
@@ -31,44 +31,6 @@
         "select_three_label": "Pesquisar",
         "button_label": "Pesquisar"
       }
-    },
-    "home-promos": {
-      "type": "home-promos",
-      "blocks": {
-        "promo-1": {
-          "type": "promo",
-          "settings": {
-            "heading": "Poupe até 40% — não perca os descontos",
-            "subheading": "Outlet & Promoções",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "promo-2": {
-          "type": "promo",
-          "settings": {
-            "heading": "20% em corta relvas marca VITO",
-            "subheading": "",
-            "button_label": "Aproveite já",
-            "button_link": ""
-          }
-        },
-        "promo-3": {
-          "type": "promo",
-          "settings": {
-            "heading": "10% na marca Dewalt",
-            "subheading": "",
-            "button_label": "Aproveite já",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "promo-1",
-        "promo-2",
-        "promo-3"
-      ],
-      "settings": {}
     },
     "home-categories": {
       "type": "home-categories",
@@ -113,15 +75,15 @@
         "cat-4"
       ],
       "settings": {
-        "heading": "Tudo o que precisa para bricolage, construção e jardim",
-        "subheading": "Descubra materiais de qualidade, ferramentas profissionais \ne soluções completas para cada projeto."
+        "heading": "Tudo o que precisa para bricolage, constru\u00c3\u00a7\u00c3\u00a3o e jardim",
+        "subheading": "Descubra materiais de qualidade, ferramentas profissionais \ne solu\u00c3\u00a7\u00c3\u00b5es completas para cada projeto."
       }
     },
     "home-products-top": {
       "type": "home-featured-products",
       "settings": {
         "heading": "Produtos",
-        "subheading": "Na GlobalBrico encontra uma ampla gama de produtos de bricolage,<br>construção, ferramentas, jardinagem e decoração.",
+        "subheading": "Na GlobalBrico encontra uma ampla gama de produtos de bricolage,<br>constru\u00c3\u00a7\u00c3\u00a3o, ferramentas, jardinagem e decora\u00c3\u00a7\u00c3\u00a3o.",
         "collection": "produtos",
         "products_to_show": 4,
         "product_button_label": "Comprar",
@@ -134,8 +96,8 @@
       "type": "home-seasonal-hero",
       "settings": {
         "image_alt": "Preparar para o Outono",
-        "heading": "Já está pronto para o Outono?",
-        "subheading": "Produtos essenciais para manter a sua casa confortável e o jardim pronto para a estação.",
+        "heading": "J\u00c3\u00a1 est\u00c3\u00a1 pronto para o Outono?",
+        "subheading": "Produtos essenciais para manter a sua casa confort\u00c3\u00a1vel e o jardim pronto para a esta\u00c3\u00a7\u00c3\u00a3o.",
         "button_label": "Comprar",
         "button_link": ""
       }
@@ -144,7 +106,7 @@
       "type": "home-featured-products",
       "settings": {
         "heading": "Produtos",
-        "subheading": "Descubra os produtos GlobalBrico e torne os seus projetos de bricolage,<br>construção mais simples, rápidos e económicos.",
+        "subheading": "Descubra os produtos GlobalBrico e torne os seus projetos de bricolage,<br>constru\u00c3\u00a7\u00c3\u00a3o mais simples, r\u00c3\u00a1pidos e econ\u00c3\u00b3micos.",
         "collection": "produtos",
         "products_to_show": 8,
         "product_button_label": "Comprar",
@@ -173,14 +135,14 @@
           "type": "service",
           "settings": {
             "title": "Entregas em 48h",
-            "caption": "Receba as suas encomendas em casa, em todo o Portugal Continental, de forma rápida e segura."
+            "caption": "Receba as suas encomendas em casa, em todo o Portugal Continental, de forma r\u00c3\u00a1pida e segura."
           }
         },
         "serv-2": {
           "type": "service",
           "settings": {
-            "title": "Assistência Técnica",
-            "caption": "Técnicos qualificados para reparações e apoio pós-venda, sempre disponíveis para o ajudar."
+            "title": "Assist\u00c3\u00aancia T\u00c3\u00a9cnica",
+            "caption": "T\u00c3\u00a9cnicos qualificados para repara\u00c3\u00a7\u00c3\u00b5es e apoio p\u00c3\u00b3s-venda, sempre dispon\u00c3\u00adveis para o ajudar."
           }
         }
       },
@@ -189,8 +151,8 @@
         "serv-2"
       ],
       "settings": {
-        "heading": "Serviços",
-        "text": "Mais do que uma loja de bricolagem online, oferecemos entregas rápidas, pagamentos seguros e apoio técnico especializado."
+        "heading": "Servi\u00c3\u00a7os",
+        "text": "Mais do que uma loja de bricolagem online, oferecemos entregas r\u00c3\u00a1pidas, pagamentos seguros e apoio t\u00c3\u00a9cnico especializado."
       }
     },
     "home-usps": {
@@ -216,7 +178,7 @@
           "type": "usp",
           "settings": {
             "fallback_icon": "<svg width=\"55\" height=\"55\" viewbox=\"0 0 55 55\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M27.4999 0C15.7065 0 6.11012 9.59345 6.11012 21.3898V24.4464L4.58332 24.4435C2.07107 24.4435 0 26.5146 0 29.0268V33.6101C0 36.1224 2.07107 38.1935 4.58332 38.1935H6.75464C7.94059 40.8862 10.6333 42.7768 13.75 42.7768C17.9495 42.7768 21.3898 39.3393 21.3898 35.1399V32.0833C21.3898 28.4768 18.6541 25.8672 15.2768 25.0766V21.3899C15.2768 14.6209 20.731 9.16672 27.5 9.16672C34.269 9.16672 39.7232 14.6209 39.7232 21.3899V25.0766C36.3458 25.8672 33.6102 28.4768 33.6102 32.0833V35.1399C33.6102 39.3394 37.0477 42.7797 41.25 42.7797C41.7743 42.7797 42.2842 42.7253 42.7768 42.625V44.3066C42.7768 46.8561 40.743 48.8899 38.1935 48.8899H34.8706C34.2347 47.1167 32.5331 45.8334 30.5566 45.8334H25.9733C23.461 45.8334 21.39 47.9044 21.39 50.4167C21.39 52.9289 23.461 55 25.9733 55H30.5566C32.536 55 34.2347 53.7167 34.8706 51.9435H38.1935C42.393 51.9435 45.8334 48.506 45.8334 44.3036V41.2471V41.2414V41.2356C45.8334 41.1783 47.3316 40.2674 48.2454 38.1935H50.4167C52.9289 38.1935 55 36.1253 55 33.6102V29.0268C55 26.5146 52.9289 24.4435 50.4167 24.4435H48.8899V21.3898C48.8899 9.59347 39.2934 0 27.4999 0ZM27.4999 3.05653C37.6434 3.05653 45.8332 11.2464 45.8332 21.3898V35.1398C45.8332 37.6893 43.7994 39.7231 41.2499 39.7231C38.7004 39.7231 36.6666 37.6893 36.6666 35.1398V32.0833C36.6666 29.5338 38.7004 27.4999 41.2499 27.4999C42.0949 27.4999 42.7767 26.8153 42.7767 25.9731V21.3898C42.7767 12.9682 35.9189 6.11012 27.4999 6.11012C19.081 6.11012 12.2232 12.9679 12.2232 21.3898V25.9731C12.2232 26.8182 12.9078 27.4999 13.75 27.4999C16.2995 27.4999 18.3333 29.5338 18.3333 32.0833V35.1398C18.3333 37.6893 16.2995 39.7231 13.75 39.7231C11.2005 39.7231 9.16664 37.6893 9.16664 35.1398V21.3898C9.16664 11.2464 17.3565 3.05653 27.4999 3.05653ZM4.58332 27.4999H6.11012V35.1398H4.58332C3.72107 35.1398 3.05652 34.4723 3.05652 33.6101V29.0268C3.05652 28.1646 3.72111 27.4999 4.58332 27.4999ZM48.8897 27.4999H50.4165C51.2788 27.4999 51.9433 28.1645 51.9433 29.0267V33.6101C51.9433 34.4723 51.2787 35.1369 50.4165 35.1369L48.8897 35.1397V27.4999ZM25.9731 48.8898H30.5565C31.4301 48.8898 32.0832 49.5458 32.0832 50.4166C32.0832 51.2903 31.4273 51.9434 30.5565 51.9434H25.9731C25.0994 51.9434 24.4435 51.2902 24.4435 50.4166C24.4435 49.5429 25.0995 48.8898 25.9731 48.8898Z\" fill=\"#FF6701\"></path></svg>",
-            "title": "Assistência técnica",
+            "title": "Assist\u00c3\u00aancia t\u00c3\u00a9cnica",
             "text": ""
           }
         },
@@ -242,8 +204,8 @@
     "home-contact": {
       "type": "home-contact",
       "settings": {
-        "heading": "Tem dúvidas sobre os nossos produtos, encomendas ou assistência técnica?",
-        "text": "Estamos aqui para ajudar. Preencha o formulário e responderemos com a maior brevidade possível.",
+        "heading": "Tem d\u00c3\u00bavidas sobre os nossos produtos, encomendas ou assist\u00c3\u00aancia t\u00c3\u00a9cnica?",
+        "text": "Estamos aqui para ajudar. Preencha o formul\u00c3\u00a1rio e responderemos com a maior brevidade poss\u00c3\u00advel.",
         "button_label": "Enviar"
       }
     },
@@ -340,7 +302,7 @@
         "cat-04"
       ],
       "settings": {
-        "heading": "Consulte os catálogos"
+        "heading": "Consulte os cat\u00c3\u00a1logos"
       }
     },
     "home-faq": {
@@ -350,21 +312,21 @@
           "type": "faq",
           "settings": {
             "question": "Quanto tempo demora a entrega da minha encomenda?",
-            "answer": "As entregas são feitas em 48h em Portugal Continental."
+            "answer": "As entregas s\u00c3\u00a3o feitas em 48h em Portugal Continental."
           }
         },
         "faq-2": {
           "type": "faq",
           "settings": {
             "question": "Quanto tempo demora a entrega da minha encomenda?",
-            "answer": "As entregas são feitas em 48h em Portugal Continental."
+            "answer": "As entregas s\u00c3\u00a3o feitas em 48h em Portugal Continental."
           }
         },
         "faq-3": {
           "type": "faq",
           "settings": {
             "question": "Quanto tempo demora a entrega da minha encomenda?",
-            "answer": "As entregas são feitas em 48h em Portugal Continental."
+            "answer": "As entregas s\u00c3\u00a3o feitas em 48h em Portugal Continental."
           }
         }
       },
@@ -381,7 +343,7 @@
       "type": "home-blog",
       "settings": {
         "heading": "Dicas de Bricolagem, Casa e Jardim",
-        "subheading": "Inspire-se com conteúdos práticos e dicas úteis para os seus projetos de bricolagem, decoração, jardinagem e manutenção da casa.",
+        "subheading": "Inspire-se com conte\u00c3\u00bados pr\u00c3\u00a1ticos e dicas \u00c3\u00bateis para os seus projetos de bricolagem, decora\u00c3\u00a7\u00c3\u00a3o, jardinagem e manuten\u00c3\u00a7\u00c3\u00a3o da casa.",
         "blog": "",
         "articles_to_show": 3,
         "button_label": "Saber mais",
@@ -391,10 +353,48 @@
     "home-newsletter": {
       "type": "home-newsletter",
       "settings": {
-        "heading": "Receba dicas e promoções exclusivas",
-        "text": "Subscreva a nossa newsletter e receba novidades, promoções e inspirações para os seus projetos de bricolagem.",
+        "heading": "Receba dicas e promo\u00c3\u00a7\u00c3\u00b5es exclusivas",
+        "text": "Subscreva a nossa newsletter e receba novidades, promo\u00c3\u00a7\u00c3\u00b5es e inspira\u00c3\u00a7\u00c3\u00b5es para os seus projetos de bricolagem.",
         "placeholder": "Email",
         "button_label": "Enviar"
+      }
+    },
+    "home-promos": {
+      "type": "home-promos",
+      "blocks": {
+        "promo-1": {
+          "type": "promo",
+          "settings": {
+            "heading": "Poupe \u00e0te 40% \u2014 n\u00e3o perca os descontos",
+            "subheading": "Outlet & Promo\u00e7\u00f5es",
+            "button_label": "Aproveite j\u00e1",
+            "button_link": "",
+            "image": "",
+            "fallback_image": ""
+          }
+        },
+        "promo-2": {
+          "type": "promo",
+          "settings": {
+            "heading": "20% em corta relvas marca VITO",
+            "subheading": "Marca VITO",
+            "button_label": "Aproveite j\u00e1",
+            "button_link": "",
+            "image": "",
+            "fallback_image": ""
+          }
+        },
+        "promo-3": {
+          "type": "promo",
+          "settings": {
+            "heading": "10% na marca Dewalt",
+            "subheading": "Ferramentas profissionais",
+            "button_label": "Aproveite j\u00e1",
+            "button_link": "",
+            "image": "",
+            "fallback_image": ""
+          }
+        }
       }
     }
   },

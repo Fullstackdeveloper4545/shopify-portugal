@@ -136,6 +136,11 @@
       font-size: 14px;
     }
 
+    .product__info-container,
+    .prod-layout__inner {
+      overflow: hidden;
+    }
+
     .product-form__quantity .form__label {
       display: none;
     }
@@ -149,6 +154,31 @@
       min-width: 200px;
       height: 54px;
       font-size: 18px;
+    }
+    @media (max-width: 749px) {
+      .product-form__buttons .product-form__submit {
+        padding: 12px 20px;
+        min-width: auto;
+        width: 100%;
+      }
+    }
+    @media (max-width: 749px) {
+      .product {
+        justify-content: center;
+        max-width: 740px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .product__media-wrapper,
+      .product__info-wrapper {
+        width: min(540px, 100%);
+        max-width: 540px;
+        margin: 0 auto;
+      }
+      .product__info-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
     .product-form__buttons .product-form__submit .product-form__submit-text {
       font-family: 'Poppins', sans-serif;

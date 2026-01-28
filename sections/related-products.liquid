@@ -44,6 +44,8 @@
     text-align: center;
   }
 
+
+
   /* ✅ REMOVE DISC / BULLETS 
   .section-{{ section.id }} .product-grid {
     list-style: none !important;
@@ -171,6 +173,32 @@
     border-color: #2e8df7;
     transform: translateY(-2px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+
+  @media (max-width: 640px) {
+    .section-{{ section.id }} .product-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .section-{{ section.id }} .prod-card-static {
+      width: 100%;
+      max-width:1600px;
+      padding: 18px;
+    }
+
+    .section-{{ section.id }} .prod-card-static__image {
+      min-height: 260px;
+      padding: 0;
+    }
+
+    .section-{{ section.id }} .prod-card-static__title {
+      font-size: 22px;
+    }
+
+    .section-{{ section.id }} .prod-card-static__price {
+      font-size: 32px;
+    }
   }
 {%- endstyle -%}
 

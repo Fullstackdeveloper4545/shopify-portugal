@@ -50,12 +50,18 @@
           Grandes descontos em bricolage, <br /> construção e jardim!
         </h1>
         <p
-          class="home-hero__text"
+          class="home-hero__text home-hero__text--desktop"
           style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;"
         >
           Aqui encontra as melhores promoções em ferramentas,
           materiais de construção, tintas, iluminação, eletricidade e 
           jardinagem, com descontos exclusivos e tempo limitado.
+        </p>
+        <p
+          class="home-hero__text home-hero__text--mobile"
+          style="font-family:Poppins;font-weight:500;font-size:20px;line-height:135%;letter-spacing:0;text-align:center;"
+        >
+          Aqui encontra as melhores promoções em ferramentas, materiais de construção, tintas, iluminação, eletricidade e jardinagem, com descontos exclusivos e tempo limitado.
         </p>
       </div>
     </div>
@@ -80,76 +86,72 @@
     </div>
   </section>
 
-  <section class="home-promos section-space">
+  <section class="home-products home-products--promocoes-mobile-only section-space">
     <div class="page-width">
-      <div class="home-promos__grid">
-        <article class="home-promos__card">
-          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & Promoções" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>Poupe até 40% — não perca os descontos</h3>
-              <p>Outlet & Promoções</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>20% em corta relvas</h3>
-              <p>Marca VITO</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>10% na marca Dewalt</h3>
-              <p>Ferramentas profissionais</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
+      <div class="home-products__header">
+        <div>
+          <h2 class="home-products__title">Produtos em destaque</h2>
+          <p class="home-products__text">Descubra produtos selecionados e aproveite as melhores ofertas.</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="home-promos section-space">
-    <div class="page-width">
-      <div class="home-promos__grid">
-        <article class="home-promos__card">
-          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & Promoções" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>Poupe até 40% — não perca os descontos</h3>
-              <p>Outlet & Promoções</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>20% em corta relvas</h3>
-              <p>Marca VITO</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>10% na marca Dewalt</h3>
-              <p>Ferramentas profissionais</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite já</a>
-          </div>
-        </article>
+      <div class="home-products__grid">
+        {% assign promo_collection = collections['produtos'] %}
+        {% if promo_collection != blank %}
+          {% for product in promo_collection.products limit: 6 %}
+            {% liquid
+              assign price_str = product.price | money
+              assign price_parts = price_str | split: ','
+              assign price_whole = price_parts[0]
+              assign price_cents = price_parts[1]
+              assign compare_str = product.compare_at_price_max | money
+              assign compare_parts = compare_str | split: ','
+              assign compare_whole = compare_parts[0]
+              assign compare_cents = compare_parts[1]
+            %}
+            {% liquid
+              assign promo_image = ''
+              if product.featured_media
+                assign promo_image = product.featured_media | image_url: width: 600
+              elsif product.images.first
+                assign promo_image = product.images.first | image_url: width: 600
+              endif
+            %}
+            <a class="home-product-card" href="{{ product.url }}">
+              <div class="home-product-card__image">
+                {% if promo_image != '' %}
+                  <img src="{{ promo_image }}" alt="{{ product.title | escape }}" loading="lazy" style="width:100%;height:180px;object-fit:contain;background:#fff;">
+                {% else %}
+                  <div style="width:100%;height:180px;background:#f2f2f2;display:flex;align-items:center;justify-content:center;">{{ product.title | escape }}</div>
+                {% endif %}
+              </div>
+              <h3 style="margin:0 0 6px;">{{ product.title }}</h3>
+              <div class="home-product-card__price">
+                {% if product.compare_at_price_max > product.price %}
+                  <span class="home-price">
+                    <span class="home-price__whole">{{ price_whole }}</span>
+                    {% if price_cents %}
+                      <sup class="home-price__cents">,{{ price_cents }}</sup>
+                    {% endif %}
+                  </span>
+                  <span class="home-price home-price--compare">
+                    <span class="home-price__whole">{{ compare_whole }}</span>
+                    {% if compare_cents %}
+                      <sup class="home-price__cents">,{{ compare_cents }}</sup>
+                    {% endif %}
+                  </span>
+                {% else %}
+                  <span class="home-price">
+                    <span class="home-price__whole">{{ price_whole }}</span>
+                    {% if price_cents %}
+                      <sup class="home-price__cents">,{{ price_cents }}</sup>
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </div>
+              <span class="gb-btn home-product-card__btn">Comprar</span>
+            </a>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </section>
@@ -407,7 +409,7 @@
     </div>
   </section>
 
-  {% render 'catalog-blog-highlights' %}
+  {% render 'catalog-blog-highlights', slider_id: 'catalog-blog-highlights-home' %}
 
   <section class="section-space">
     <div class="page-width">
@@ -561,43 +563,6 @@
           {{ page.title | default: 'Produtos' | escape }}
         </span>
       </nav>
-    </div>
-  </section>
-
-  <section class="home-promos section-space">
-    <div class="page-width">
-      <div class="home-promos__grid">
-        <article class="home-promos__card">
-          <img src="{{ '6e23fa198c71c602942f754653e465c414cd7d3d.jpg' | asset_url }}" alt="Outlet & PromoÃ§Ãµes" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>Poupe atÃ© 40% â€” nÃ£o perca os descontos</h3>
-              <p>Outlet & PromoÃ§Ãµes</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '18adb5906584fb8739abaaa3296fe782775d26b1.png' | asset_url }}" alt="20% em corta relvas marca VITO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>20% em corta relvas</h3>
-              <p>Marca VITO</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
-          </div>
-        </article>
-        <article class="home-promos__card">
-          <img src="{{ '3ce8e61c69bb8e153c122e2c8c6fa3aa907e5f26.jpg' | asset_url }}" alt="10% na marca Dewalt" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <div class="home-promos__content">
-            <div>
-              <h3>10% na marca Dewalt</h3>
-              <p>Ferramentas profissionais</p>
-            </div>
-            <a class="gb-btn gb-btn--ghost" href="#">Aproveite jÃ¡</a>
-          </div>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -1526,7 +1491,7 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
   </section>
 
   {% if template.name == 'page.catalogos' %}
-    {% render 'catalog-blog-highlights' %}
+    {% render 'catalog-blog-highlights', slider_id: 'catalog-blog-highlights-catalog' %}
   {% else %}
     <section class="home-blog">
       <div class="page-width">
@@ -1691,7 +1656,7 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
     </div>
   </section>
 
-  {% render 'catalog-blog-highlights' %}
+  {% render 'catalog-blog-highlights', slider_id: 'catalog-blog-highlights-footer' %}
 
   <section class="section-space">
     <div class="page-width">
