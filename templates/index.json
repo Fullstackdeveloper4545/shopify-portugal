@@ -368,7 +368,7 @@
             "heading": "Poupe \u00e0te 40% \u2014 n\u00e3o perca os descontos",
             "subheading": "Outlet & Promo\u00e7\u00f5es",
             "button_label": "Aproveite j\u00e1",
-            "button_link": "",
+            "button_link": "/collections/all",
             "image": "",
             "fallback_image": ""
           }
@@ -379,7 +379,7 @@
             "heading": "20% em corta relvas marca VITO",
             "subheading": "Marca VITO",
             "button_label": "Aproveite j\u00e1",
-            "button_link": "",
+            "button_link": "/collections/all",
             "image": "",
             "fallback_image": ""
           }
@@ -390,12 +390,17 @@
             "heading": "10% na marca Dewalt",
             "subheading": "Ferramentas profissionais",
             "button_label": "Aproveite j\u00e1",
-            "button_link": "",
+            "button_link": "/collections/all",
             "image": "",
             "fallback_image": ""
           }
         }
-      }
+      },
+      "block_order": [
+        "promo-1",
+        "promo-2",
+        "promo-3"
+      ]
     }
   },
   "order": [

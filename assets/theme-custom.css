@@ -1242,6 +1242,8 @@ a {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%);
   color: var(--gb-white);
   gap: var(--gb-space-8);
+  text-align: center;
+  align-items: center;
 }
 
 .home-promos__card:first-child .home-promos__content {
@@ -1363,6 +1365,22 @@ a {
   line-height: 36px;
   text-align: center;
   color: #ffffff;
+}
+
+.home-promos__card:nth-child(2) .home-promos__content,
+.home-promos__card:nth-child(3) .home-promos__content {
+  justify-content: flex-start;
+  padding-top: 90px;
+}
+
+.home-promos__card:nth-child(2) h3,
+.home-promos__card:nth-child(3) h3,
+.home-promos__card:nth-child(2) p,
+.home-promos__card:nth-child(3) p {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
 }
 
 /* Category mosaic */

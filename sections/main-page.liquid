@@ -6,6 +6,71 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .home-promos {
+    padding: 72px 0;
+  }
+
+  .home-promos__grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .home-promos__card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .home-promos__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    
+  }
+
+  .home-promos__content {
+    position: absolute;
+    inset: 0;
+    padding: var(--gb-space-24);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--gb-space-12);
+    color: #fff;
+    z-index: 1;
+  }
+
+  .home-promos__content h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .home-promos__content p {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  .home-promos__content .gb-btn {
+    width: 150px;
+    background: #ff6701;
+    border-radius: 24px;
+    text-transform: none;
+    font-weight: 600;
+  }
+
+  @media (max-width: 749px) {
+    .home-promos__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -86,6 +151,33 @@
     </div>
   </section>
 
+  <section class="home-promos">
+    <div class="page-width">
+      <div class="home-promos__grid">
+        <article class="home-promos__card" style="background-image:url({{ 'image1.jpg' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>Poupe até 40% — não perca os descontos</h3>
+            <p>Outlet & Promoções</p>
+            <a class="gb-btn" href="/collections/all">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card" style="background-image:url({{ 'image2.png' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>20% em corta relvas marca VITO</h3>
+            <p>Marca VITO</p>
+            <a class="gb-btn" href="/collections/all">Aproveite já</a>
+          </div>
+        </article>
+        <article class="home-promos__card" style="background-image:url({{ 'image3.jpg' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>10% na marca Dewalt</h3>
+            <p>Ferramentas profissionais</p>
+            <a class="gb-btn" href="/collections/all">Aproveite já</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
   <section class="home-products home-products--promocoes-mobile-only section-space">
     <div class="page-width">
       <div class="home-products__header">
@@ -157,6 +249,33 @@
   </section>
 
   {% unless template.name == 'page.catalogos' or page.handle == 'promocoes' or template.suffix == 'promocoes' %}
+    <section class="home-promos">
+      <div class="page-width">
+        <div class="home-promos__grid">
+          <article class="home-promos__card" style="background-image:url({{ 'image1.jpg' | asset_url }});">
+            <div class="home-promos__content">
+              <h3>Poupe até 40% — não perca os descontos</h3>
+              <p>Outlet & Promoções</p>
+              <a class="gb-btn" href="/collections/all">Aproveite já</a>
+            </div>
+          </article>
+          <article class="home-promos__card" style="background-image:url({{ 'image2.png' | asset_url }});">
+            <div class="home-promos__content">
+              <h3>20% em corta relvas marca VITO</h3>
+              <p>Marca VITO</p>
+              <a class="gb-btn" href="/collections/all">Aproveite já</a>
+            </div>
+          </article>
+          <article class="home-promos__card" style="background-image:url({{ 'image3.jpg' | asset_url }});">
+            <div class="home-promos__content">
+              <h3>10% na marca Dewalt</h3>
+              <p>Ferramentas profissionais</p>
+              <a class="gb-btn" href="/collections/all">Aproveite já</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
     <section class="home-usps">
       <div class="page-width">
         <div class="home-categories__header">
@@ -563,6 +682,34 @@
           {{ page.title | default: 'Produtos' | escape }}
         </span>
       </nav>
+    </div>
+  </section>
+
+  <section class="home-promos">
+    <div class="page-width">
+      <div class="home-promos__grid">
+        <article class="home-promos__card" style="background-image:url({{ 'image1.jpg' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>Poupe atÃ© 40% â€” nÃ£o perca os descontos</h3>
+            <p>Outlet & PromoÃ§Ãµes</p>
+            <a class="gb-btn" href="/collections/all">Aproveite jÃ¡</a>
+          </div>
+        </article>
+        <article class="home-promos__card" style="background-image:url({{ 'image2.png' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>20% em corta relvas marca VITO</h3>
+            <p>Marca VITO</p>
+            <a class="gb-btn" href="/collections/all">Aproveite jÃ¡</a>
+          </div>
+        </article>
+        <article class="home-promos__card" style="background-image:url({{ 'image3.jpg' | asset_url }});">
+          <div class="home-promos__content">
+            <h3>10% na marca Dewalt</h3>
+            <p>Ferramentas profissionais</p>
+            <a class="gb-btn" href="/collections/all">Aproveite jÃ¡</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -2472,5 +2619,6 @@ Suporte em Obra|7882b38e78e60436108052f28243c4f1109ef6e0.jpg|Oferecemos suporte 
   ]
 }
 {% endschema %}
+
 
 
